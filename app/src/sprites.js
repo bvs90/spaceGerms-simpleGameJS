@@ -12,3 +12,21 @@ function Background() {
   
   return background;
 }
+
+function SpaceShip() {
+  var spaceShip = new Sprite(game, './assets/test-ship.png', 41, 78);
+  spaceShip.setSpeed(0);
+  spaceShip.setPosition(400, 550);
+  
+  spaceShip.checkKeys = function() {
+    if (keysDown[K_LEFT]) {
+      this.changeXby(-10);
+    }
+    if (keysDown[K_RIGHT]) {
+      this.changeXby(10);
+    }  
+  };
+  
+  
+  return spaceShip;
+}
