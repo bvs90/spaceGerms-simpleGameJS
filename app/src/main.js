@@ -2,12 +2,14 @@ window.addEventListener('load', init);
 
 var game,
     spaceShip;
+    // laserBeams;
 
 function init() {
   game = new Scene();
   
   background = new Background();
   spaceShip = new SpaceShip();
+  // lasers = new LaserBeams();
   
   game.start();
 }
@@ -19,4 +21,12 @@ function update() {
   
   spaceShip.checkKeys();
   spaceShip.update();
+  updateLasers();
+}
+
+function updateLasers() {
+  var lasers = spaceShip.lasers;
+  for( var i = 0; i < lasers.length; i++) {
+    lasers[i].update();
+  }
 }

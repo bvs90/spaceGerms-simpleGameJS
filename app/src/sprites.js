@@ -15,8 +15,9 @@ function Background() {
 
 function SpaceShip() {
   var spaceShip = new Sprite(game, './assets/test-ship.png', 41, 78);
-  spaceShip.setSpeed(1);
+  spaceShip.setSpeed(0);
   spaceShip.setPosition(400, 550);
+  spaceShip.lasers = [];
   
   spaceShip.checkKeys = function() {
     if (keysDown[K_LEFT]) {
@@ -30,8 +31,23 @@ function SpaceShip() {
     }
     if (keysDown[K_DOWN]) {
       this.changeYby(10);
+    }
+    if (keysDown[K_SPACE]) {
+      this.lasers.push(new LaserBeam());
     }   
   };
   
   return spaceShip;
+}
+
+function LaserBeam() {
+  var laserBeam = new Sprite(game, './assets/laser-beam.png', 94, 14);
+  laserBeam.hide();
+  laserBeam.show();
+  laserBeam.setBoundAction(DIE);
+  laserBeam.setPosition(spaceShip.x, (spaceShip.y)-65);
+  laserBeam.setAngle(spaceShip.getImgAngle()-90);
+  laserBeam.setSpeed(15);
+  
+  return laserBeam;
 }
