@@ -59,3 +59,22 @@ function LaserBeam() {
   
   return laserBeam;
 }
+
+function Germ() {
+  var germ = new Sprite(game, './assets/germ1.png', 59, 78);
+  germ.setSpeed(4);
+  germ.setPosition(Math.random() * 800, 50);
+  germ.setAngle(180);
+  germ.setBoundAction(BOUNCE);
+  
+  germ.maybeChangeDirection = function() {
+    var randomNum = Math.random() * 100;
+    
+    if (randomNum <= 10) {
+      var newDir = (Math.random() * 90) - 45;
+      this.changeAngleBy(newDir);
+    }    
+  };
+  
+  return germ;
+}
