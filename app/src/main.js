@@ -2,7 +2,8 @@ window.addEventListener('load', init);
 
 var game,
     spaceShip,
-    germs;
+    germs,
+    timer;
 
 function init() {
   game = new Scene();
@@ -11,6 +12,8 @@ function init() {
   spaceShip = new SpaceShip();
   
   germs = setUpGerms();
+  
+  timer = new Timer();
   
   game.start();
 }
@@ -25,6 +28,8 @@ function update() {
   spaceShip.checkKeys();
   spaceShip.update();
   updateLasers();
+  
+  addGerms();
   
   updateGerms();
 }
@@ -59,7 +64,6 @@ function changeGermPosition() {
   }  
 }
 
-
 function checkForCollisions(germ) {
   var lasers = spaceShip.lasers;
   for( var i = 0; i < lasers.length; i++) {
@@ -68,4 +72,18 @@ function checkForCollisions(germ) {
       lasers[i].hide();
     }
   }
+}
+
+function addGerms() {
+  
+  var currentTime = timer.getElapsedTime();
+  
+  if (currentTime > 5) {
+    for(var i = 0; i < 5; i++) {
+      germs.push(new Germ());
+    }
+    
+    timer.reset() ;
+  } 
+  
 }
