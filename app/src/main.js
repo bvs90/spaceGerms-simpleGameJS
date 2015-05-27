@@ -48,6 +48,7 @@ function setUpGerms() {
 
 function updateGerms() {
   for(var i = 0; i < germArray.length; i++) {
+    checkForCollisions(i);
     germArray[i].update();
   }
 }
@@ -58,3 +59,13 @@ function changeGermPosition() {
   }  
 }
 
+
+function checkForCollisions(germ) {
+  var lasers = spaceShip.lasers;
+  for( var i = 0; i < lasers.length; i++) {
+    if (lasers[i].collidesWith(germs[germ])) {
+      germs[germ].hide();
+      lasers[i].hide();
+    }
+  }
+}

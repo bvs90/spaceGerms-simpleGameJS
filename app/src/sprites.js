@@ -65,7 +65,7 @@ function Germ() {
   germ.setSpeed(4);
   germ.setPosition(Math.random() * 800, 50);
   germ.setAngle(180);
-  germ.setBoundAction(BOUNCE);
+  germ.setBoundAction(WRAP);
   
   germ.maybeChangeDirection = function() {
     var randomNum = Math.random() * 100;
