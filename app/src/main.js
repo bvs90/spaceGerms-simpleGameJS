@@ -33,6 +33,7 @@ function update() {
   changeGermPosition();
   
   spaceShip.checkKeys();
+  spaceShip.checkForCollisionsWithGerms();
   spaceShip.update();
   updateLasers();
   
@@ -97,3 +98,15 @@ function addGerms() {
     timer.reset();
   } 
 }
+
+function resetGame() {
+  game.stop();
+  game.clear();
+  
+  var canvas = document.querySelector('canvas');
+  var body = document.body;
+  body.removeChild(canvas);
+  
+  init();
+}
+
