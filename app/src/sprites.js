@@ -1,7 +1,7 @@
 function Background() {
   var background = new Sprite(game, './assets/space-background.gif', 800, 1200);
   background.setDX(0);
-  background.setDY(0.5);
+  background.setDY(1.5);
   background.setPosition(400,300);
   
   background.checkBounds = function(){
@@ -60,21 +60,5 @@ function LaserBeam() {
   return laserBeam;
 }
 
-function Germ() {
-  var germ = new Sprite(game, './assets/germ1.png', 59, 78);
-  germ.setSpeed(4);
-  germ.setPosition(Math.random() * 800, 50);
-  germ.setAngle(180);
-  germ.setBoundAction(WRAP);
-  
-  germ.maybeChangeDirection = function() {
-    var randomNum = Math.random() * 100;
-    
-    if (randomNum <= 10) {
-      var newDir = (Math.random() * 90) - 45;
-      this.changeAngleBy(newDir);
-    }    
-  };
-  
-  return germ;
-}
+
+
