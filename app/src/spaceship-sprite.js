@@ -4,9 +4,14 @@ function SpaceShip() {
   spaceShip.setPosition(400, 550);
   spaceShip.lasers = [];
   
-  spaceShip.setBoundAction(STOP);
+  spaceShip.checkKeys = checkKeys;
   
-  spaceShip.checkKeys = function() {
+  spaceShip.checkForCollisionsWithGerms = checkForCollisionsWithGerms;
+  
+  return spaceShip;
+}
+
+function checkKeys() {
     if (keysDown[K_LEFT]) {
       if (this.x > 40) {
         this.changeXby(-10);
@@ -29,12 +34,7 @@ function SpaceShip() {
     }
     if (keysDown[K_SPACE]) {
       this.lasers.push(new LaserBeam());
-    }   
-  };
-  
-  spaceShip.checkForCollisionsWithGerms = checkForCollisionsWithGerms;
-  
-  return spaceShip;
+    }     
 }
 
 function checkForCollisionsWithGerms() {
