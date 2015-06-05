@@ -4,7 +4,8 @@ var game,
     spaceShip,
     germs,
     timer,
-    kills;
+    kills,
+    explosion;
 
 var score = document.querySelector('.score');
 
@@ -100,13 +101,30 @@ function addGerms() {
 }
 
 function resetGame() {
-  game.stop();
-  game.clear();
+  spaceShip.changeImage('./assets/explosion.png');
+  spaceShip.width = 68;
+  spaceShip.height = 61;
   
-  var canvas = document.querySelector('canvas');
-  var body = document.body;
-  body.removeChild(canvas);
+  // override the function to stop sprite from moving
+  spaceShip.checkKeys = noop;
   
-  init();
+  window.setTimeout(clearCanvas, 2000);
+}
+
+function clearCanvas() {
+  // game.clear();
+  // game.stop();
+  
+  // var canvas = document.querySelector('canvas');
+  // var body = document.body;
+  // body.removeChild(canvas);
+  
+  // init(); 
+   
+  document.location.href = '';
+}
+
+function noop() {
+  return;
 }
 
