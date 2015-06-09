@@ -8,6 +8,7 @@ var game,
     explosion;
 
 var score = document.querySelector('.score');
+var highScore = document.querySelector('.high-score');
 
     
 function init() {
@@ -105,6 +106,10 @@ function resetGame() {
   spaceShip.width = 68;
   spaceShip.height = 61;
   
+  if (kills > highScore.innerHTML) {
+    highScore.innerHTML = kills;
+  }
+  
   // override the function to stop sprite from moving
   spaceShip.checkKeys = noop;
   
@@ -112,16 +117,14 @@ function resetGame() {
 }
 
 function clearCanvas() {
-  // game.clear();
-  // game.stop();
+  game.clear();
+  game.stop();
   
-  // var canvas = document.querySelector('canvas');
-  // var body = document.body;
-  // body.removeChild(canvas);
+  var canvas = document.querySelector('canvas');
+  var body = document.body;
+  body.removeChild(canvas);
   
-  // init(); 
-   
-  document.location.href = '';
+  window.setTimeout(init, 2000);
 }
 
 function noop() {

@@ -1,5 +1,5 @@
 function Germ() {
-  var germ = pickGermSprite();
+  var germ = pickRandomGermSprite();
   germ.setSpeed(4);
   germ.setPosition(Math.random() * 800, 50);
   germ.setAngle(180);
@@ -17,7 +17,7 @@ function Germ() {
   return germ;
 }
 
-function pickGermSprite() {
+function pickRandomGermSprite() {
   var spriteList = {
     0 : new Sprite(game, './assets/germ1.png', 59, 78),
     1 : new Sprite(game, './assets/germ2.png', 61, 80),
