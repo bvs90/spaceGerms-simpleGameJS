@@ -110,24 +110,17 @@ function resetGame() {
     highScore.innerHTML = kills;
   }
   
-  // override the function to stop sprite from moving
-  spaceShip.checkKeys = noop;
+  game.stop();
   
   window.setTimeout(clearCanvas, 2000);
 }
 
 function clearCanvas() {
   game.clear();
-  game.stop();
   
   var canvas = document.querySelector('canvas');
   var body = document.body;
   body.removeChild(canvas);
   
-  window.setTimeout(init, 2000);
+  init();
 }
-
-function noop() {
-  return;
-}
-
