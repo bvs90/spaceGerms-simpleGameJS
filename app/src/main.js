@@ -7,7 +7,7 @@ var game,
     kills,
     explosion;
 
-var score = document.querySelector('.score');
+var score = document.querySelector('.current-score');
 var highScore = document.querySelector('.high-score');
 
     

@@ -1,10 +1,37 @@
-div {
-  width: 400px;
-  float: left;
-  border: 1px solid grey;
-  box-sizing: border-box;
+@import url(http://fonts.googleapis.com/css?family=VT323);
+
+body {
+  font-family: 'VT323', monospace;
 }
 
-body > div:first-child {
+canvas {
+  margin-top: -10px;
+}
+
+header,
+.scores {
+  width: 800px;
+  height: 40px;
   margin-left: 10px;
+  background-color: #272B38;
+  color: #EAEAC8;
+}
+
+header h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.scores {
+  font-size: 24px;
+}
+
+.scores div:first-child {
+  float: left;
+  margin-left: 20px;
+}
+
+.scores div:last-child {
+  float: right;
+  margin-right: 20px;
 }
